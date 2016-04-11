@@ -1,0 +1,24 @@
+{
+  "name": "todo-aws",
+  "version": "0.1.0",
+  "description": "todo list app for aws setup",
+  "main": "entry.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goatic/todo-aws.git"
+  },
+  "keywords": [
+    "lol",
+    "kappa",
+    "same"
+  ],
+  "author": "goatic <goatic@live.dk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goatic/todo-aws/issues"
+  },
+  "homepage": "https://github.com/goatic/todo-aws#readme"
+}
