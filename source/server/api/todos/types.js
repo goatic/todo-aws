@@ -1,7 +1,7 @@
 import {
     GraphQLObjectType,
     GraphQLBoolean,
-    GraphQLInt,
+    GraphQLFloat,
     GraphQLString,
     GraphQLList
 } from 'graphql'
@@ -9,11 +9,10 @@ import {
 const task = new GraphQLObjectType({
     name: 'Task',
     fields: {
-        _id:        { type: GraphQLString },
         name:       { type: GraphQLString },
         done:       { type: GraphQLBoolean },
-        createdAt:  { type: GraphQLInt },
-        doneAt:     { type: GraphQLInt }
+        createdAt:  { type: GraphQLFloat },
+        doneAt:     { type: GraphQLFloat }
     }
 })
 
@@ -21,7 +20,7 @@ const todo = new GraphQLObjectType({
     name: 'Todo',
     fields: {
         _id:        { type: GraphQLString },
-        createdAt:  { type: GraphQLInt },
+        createdAt:  { type: GraphQLFloat },
         createdBy:  { type: GraphQLString },
         name:       { type: GraphQLString },
         tasks:      { type: new GraphQLList(task) }
