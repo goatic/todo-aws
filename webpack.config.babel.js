@@ -5,13 +5,20 @@ import {
 const babelLoader = {
     test: /.jsx?$/,
     loaders: ['react-hot', 'babel'],
-    exclude: /node_modules/
+    include: [
+      join(__dirname, '/source/client'),
+      join(__dirname, '/source/graphiql')
+    ]
 }
 
 const cssLoader = {
     test: /.css?$/,
-    loaders: ['style', 'css?modules'],
-    include: join(__dirname, '/source/client')
+    loaders: ['style', 'css'],
+    include: [
+      join(__dirname, '/source/client'),
+      join(__dirname, '/source/graphiql'),
+      join(__dirname, '/node_modules/graphiql/graphiql.css')
+    ]
 }
 
 const devServer = {
