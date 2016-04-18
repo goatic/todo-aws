@@ -30,6 +30,12 @@ async function getAll(){
         .toArray()
 }
 
+async function remove(_id){
+  await (await getCollection(TODOS_COLLECTION))
+        .deleteOne({_id: toObjectId(_id)})
+  return _id
+}
+
 async function addTask(_id, name){
     await (await getCollection(TODOS_COLLECTION))
         .updateOne({
@@ -48,9 +54,26 @@ async function addTask(_id, name){
     return await get(_id)
 }
 
+async function removeTask(_id, name){
+  await (await getCollection(TODOS_COLLECTION))
+    .updateOne({
+        _id: toObjectId(_id)
+    },
+    {
+        $pull: {
+            tasks: {
+                name
+            }
+        }
+    })
+    return await get(_id)
+  }
+
 export {
     add,
     get,
     getAll,
-    addTask
+    remove,
+    addTask,
+    removeTask
 }

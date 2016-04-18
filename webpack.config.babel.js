@@ -24,7 +24,7 @@ const devServer = {
         index: 'client.html'
     },
     proxy: {
-        '/api': {target: 'http://loacalhost:3001'}
+        '/api': {target: 'http://localhost:3001'}
     }
 }
 
@@ -39,7 +39,7 @@ const config = {
         filename: '[name].js',
         publicPath: '/distribution/'
     },
-    modules: {
+    module: {
         loaders: [babelLoader, cssLoader]
     },
     devServer
