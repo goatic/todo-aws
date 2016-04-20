@@ -5,11 +5,11 @@ import {
 
 const TODOS_COLLECTION = 'todos'
 
-async function add(name){
+async function add(title){
     const todo = {
-        name,
+        title,
         createdAt: Date.now(),
-        isDone: false,
+        done: false,
         doneAt: undefined,
     }
     await (await getCollection(TODOS_COLLECTION))
@@ -40,9 +40,9 @@ async function toggleDone(_id){
     const todo = await get(_id)
       await (await getCollection(TODOS_COLLECTION))
         .updateOne({_id: toObjectId(_id)}, {
-            isDone: !todo.isDone
+            done: !todo.done
         })
-    todo.isDone = !todo.isDone
+    todo.done = !todo.done
   return todo
 }
 

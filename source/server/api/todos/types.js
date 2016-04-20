@@ -13,11 +13,11 @@ const todo = new GraphQLObjectType({
             type: GraphQLString,
             description: 'The ID of the todo'
         },
-        name:       {
+        title:       {
             type: GraphQLString,
-            description: 'The name of the task'
+            description: 'The title of the task'
         },
-        isDone:     {
+        done:     {
             type: GraphQLBoolean,
             description: 'Whether the task is done'
         },

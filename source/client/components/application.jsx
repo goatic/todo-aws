@@ -12,6 +12,14 @@ import ListControls from '../containers/listControls'
 import Footer from './footer.jsx'
 
 class Application extends Component{
+  componentDidMount() {
+    const {
+      onGetAll
+    } = this.props
+
+    onGetAll()
+  }
+
   render(){
     return (
       <div className="absolute-center main-box"

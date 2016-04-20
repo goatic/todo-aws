@@ -12,7 +12,7 @@ import {
 
 import store from './store'
 
-import Application from './components/application.jsx'
+import Application from './containers/application'
 
 render (
   <Provider store={store}>

@@ -1,3 +1,4 @@
+const GET_ALL = 'GET_ALL'
 const ADD_TODO = 'ADD_TODO'
 const REMOVE_TODO = 'REMOVE_TODO'
 const REMOVE_VISIBLE ='REMOVE_VISIBLE'
@@ -7,6 +8,9 @@ function reducer (state = [], action) {
   switch(action.type) {
     case ADD_TODO:
       return [action.todo, ...state]
+
+    case GET_ALL:
+      return [...action.todos]
 
     case REMOVE_TODO:
       return state.filter((todo) => todo._id !== action._id)
@@ -43,6 +47,7 @@ export default reducer
 
 export {
   ADD_TODO,
+  GET_ALL,
   REMOVE_TODO,
   TOGGLE_DONE_TODO,
   REMOVE_VISIBLE

@@ -14,9 +14,9 @@ import {
 const add = {
     type: todo,
     args: {
-        name:  { type: new GraphQLNonNull(GraphQLString) }
+        title:  { type: new GraphQLNonNull(GraphQLString) }
     },
-    resolve: (parent, args) => dbAdd(args.name)
+    resolve: (parent, args) => dbAdd(args.title)
 }
 
 const remove = {
