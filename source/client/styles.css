@@ -1,0 +1,43 @@
+/* ..:::: Global :::::... */
+
+.inline-top {display: inline-block; vertical-align: top}
+.inline-middle {display: inline-block; vertical-align: middle}
+.absolute-center {position: absolute; margin: auto; top: 0; left: 0; bottom: 0; right: 0}
+p {margin: 0; color: #737373}
+
+.Roboto, .Roboto-thin, .Roboto-bold {font-family: 'Roboto', 'Open Sans', sans-serif;}
+.Roboto {font-weight: normal}
+.Roboto-thin {font-weight: 300}
+.Roboto-bold {font-weight: 700}
+
+/* ..:::: Common :::::... */
+
+body {
+	background: #ddd;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+.main-box {
+	background: transparent;
+	border-radius: 5px;
+	border: 0;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	display: block;
+	top: 3.25em;
+	position: relative;
+	min-width: 30em;
+	width: 34%; /*665px*/
+}
+/* ..:::: Configs :::::... */
+
+.no-select {
+  cursor: default;
+  -webkit-touch-callout: none;   /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;
+}

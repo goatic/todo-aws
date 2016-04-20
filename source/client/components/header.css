@@ -1,0 +1,21 @@
+/* ..:::: Header :::::... */
+
+header {
+	border-radius: 5px 5px 0 0;
+	background: #00f3c2;
+	border-bottom: 5px solid #00dfb2;
+	width: 100%;
+}
+header > div {
+	display: table;
+	padding: 0 6.5%;
+	height: 7.8125em;
+	width: 87%;
+}
+header > div > p {display: table-cell; vertical-align: middle}
+.title-text {font-size: 2.7em; text-align: left}
+.version-text {
+	font-size: 1.4em;
+	text-align: right;
+	opacity: .9
+}

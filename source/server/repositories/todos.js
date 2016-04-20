@@ -9,8 +9,8 @@ async function add(name){
     const todo = {
         name,
         createdAt: Date.now(),
-        createdBy: 'goatic',
-        tasks: []
+        isDone: false,
+        doneAt: undefined,
     }
     await (await getCollection(TODOS_COLLECTION))
         .insertOne(todo)
@@ -36,44 +36,28 @@ async function remove(_id){
   return _id
 }
 
-async function addTask(_id, name){
-    await (await getCollection(TODOS_COLLECTION))
-        .updateOne({
-            _id: toObjectId(_id)
-        },
-        {
-            $push: {
-                tasks: {
-                    name,
-                    createdAt: Date.now(),
-                    done: false,
-                    doneAt: null
-                }
-            }
+async function toggleDone(_id){
+    const todo = await get(_id)
+      await (await getCollection(TODOS_COLLECTION))
+        .updateOne({_id: toObjectId(_id)}, {
+            isDone: !todo.isDone
         })
-    return await get(_id)
+    todo.isDone = !todo.isDone
+  return todo
 }
 
-async function removeTask(_id, name){
-  await (await getCollection(TODOS_COLLECTION))
-    .updateOne({
-        _id: toObjectId(_id)
-    },
-    {
-        $pull: {
-            tasks: {
-                name
-            }
-        }
-    })
-    return await get(_id)
-  }
+async function removeMore(ids){
+    await (await getCollection(TODOS_COLLECTION))
+        .remove({
+            _id: {$in: ids.map(id => toObjectId(id))}
+        })
+    return await getAll()
+}
 
 export {
     add,
-    get,
     getAll,
     remove,
-    addTask,
-    removeTask
+    toggleDone,
+    removeMore
 }

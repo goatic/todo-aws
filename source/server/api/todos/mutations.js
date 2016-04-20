@@ -1,13 +1,14 @@
 import {
     GraphQLNonNull,
-    GraphQLString
+    GraphQLString,
+    GraphQLList
 } from 'graphql'
 import todo from './types'
 import {
     add as dbAdd,
-    addTask as dbAddTask,
     remove as dbRemove,
-    removeTask as dbRemoveTask
+    toggleDone as dbToggleDone,
+    removeMore as dbRemoveMore
 } from '../../repositories/todos'
 
 const add = {
@@ -18,15 +19,6 @@ const add = {
     resolve: (parent, args) => dbAdd(args.name)
 }
 
-const addTask = {
-    type: todo,
-    args: {
-        _id: {type: new GraphQLNonNull(GraphQLString)},
-        name: {type: new GraphQLNonNull(GraphQLString)}
-    },
-    resolve: (parent, args) => dbAddTask(args._id, args.name)
-}
-
 const remove = {
   type: GraphQLString,
   args: {
@@ -35,18 +27,25 @@ const remove = {
   resolve: (parent, args) => dbRemove(args._id)
 }
 
-const removeTask = {
+const toggleDone = {
     type: todo,
     args: {
-        _id: {type: new GraphQLNonNull(GraphQLString)},
-        name: {type: new GraphQLNonNull(GraphQLString)}
+        _id: {type: new GraphQLNonNull(GraphQLString)}
     },
-    resolve: (parent, args) => dbRemoveTask(args._id, args.name)
+    resolve: (parent, args) => dbToggleDone(args._id)
+}
+
+const removeMore = {
+    type: new GraphQLList(todo),
+    args: {
+        ids: {type: new GraphQLNonNull(new GraphQLList(GraphQLString))}
+    },
+    resolve: (parent, args) => dbRemoveMore(args.ids)
 }
 
 export {
     add,
-    addTask,
     remove,
-    removeTask
+    toggleDone,
+    removeMore
 }

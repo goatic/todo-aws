@@ -4,22 +4,20 @@ import {
 } from 'graphql'
 
 import {
-    get as todo,
     getAll as todos
 } from './todos/queries'
 
 import {
     add as addTodo,
-    addTask,
     remove as removeTodo,
-    removeTask
+    toggleDone as toggleTodoDone,
+    removeMore as removeTodos
 } from './todos/mutations'
 
 const schema = new GraphQLSchema({
     query: new GraphQLObjectType({
         name: 'Query',
         fields: {
-            todo,
             todos
         }
     }),
@@ -27,9 +25,9 @@ const schema = new GraphQLSchema({
         name: 'Mutation',
         fields: {
             addTodo,
-            addTask,
             removeTodo,
-            removeTask
+            toggleTodoDone,
+            removeTodos
         }
     })
 })

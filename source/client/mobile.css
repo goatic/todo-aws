@@ -1,0 +1,23 @@
+/* ..:::::::: MOBILE FRIENDLY ::::::::.... */
+
+@media all and (max-width: 1200px) {
+  .main-box {
+  	width: 60%;
+  }
+}
+@media all and (max-width: 700px) {
+	header {
+		border-radius: 0;
+	}
+	.main-box {
+		border-radius: 0;
+		border: 0;
+		min-width: 500px;
+		top: 0;
+		width: 100%;
+		margin: 0;
+	}
+	footer {
+		border-radius: 0;
+	}
+}

@@ -1,12 +1,9 @@
 import {
-    GraphQLList,
-    GraphQLNonNull,
-    GraphQLString
+    GraphQLList
 } from 'graphql'
 import todo from './types'
 import {
-    getAll as dbGetAll,
-    get as dbGet
+    getAll as dbGetAll
 } from '../../repositories/todos'
 
 const getAll = {
@@ -14,15 +11,6 @@ const getAll = {
     resolve: (parent, args) => dbGetAll()
 }
 
-const get = {
-    type: todo,
-    args: {
-        _id: { type: new GraphQLNonNull(GraphQLString) }
-    },
-    resolve: (parent, args) => dbGet(args._id)
-}
-
 export {
-    getAll,
-    get
+    getAll
 }

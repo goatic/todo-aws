@@ -1,0 +1,56 @@
+/* ..:::: List Item :::::... */
+
+.element {
+	background: #fcfcfc;
+	border-bottom: 1px solid #c2c2c2;
+	display: table; /*fixes the width problem*/
+  table-layout: fixed;
+  white-space: nowrap;
+	padding: 1.8em 0;
+	position: relative;
+	width: 100%;
+}
+.trash-icon {width: 3em}
+.list-left, .list-right {display: table-cell; vertical-align: middle}
+.list-left {
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 0 0 6.5%
+}
+.list-right {padding: 0 6.5% 0 3%; width: 3em}
+.list-circle {
+	background: transparent;
+	border: 0.1875em solid #c0c0c0;
+	border-radius: 3.75em;
+	overflow: hidden;
+	position: relative;
+	height: 3.75em;
+	width: 3.75em;
+}
+.list-circle.checked {
+	background: #00f3c2;
+	border: 0.1875em solid #00f3c2;
+}
+/*#cover {
+	display: block;
+	position: absolute;
+	background: #00f3c2;
+	height: 200px;
+	width: 200px;
+	margin-left: 0;
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+	z-index: 9;
+}
+#cover.overlay {margin-left: -200px; background: #00f3c2}*/
+.checkmark-icon {display: none; fill: transparent}
+.checkmark-icon.show {display: block; fill: white; width: 3em; z-index: 1}
+.list-circle, .checkmark-icon {
+	-webkit-transition: .15s ease-in-out;
+	transition: .15s ease-in-out;
+}
+.list-title  {display: block; font-size: 2.1em; width: inherit; overflow: hidden}
+.list-title::after  {text-overflow: ellipsis}
+.list-date {font-size: 1.5em}
+.list-text {padding: 0 0 0 1.7em; }
