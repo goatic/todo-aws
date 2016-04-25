@@ -9,7 +9,7 @@ import {
 } from '../actions/visibility'
 
 import {
-  removeVisible
+  removeAll
 } from '../actions/todos'
 
 function mapStateToProps ({visibility}) {
@@ -19,7 +19,7 @@ function mapStateToProps ({visibility}) {
 function mapDispatchToProps (dispatch) {
   return {
     onToggleVisibility: (filter) => dispatch(toggleVisibility(filter)),
-    onRemoveVisible: (filter) => dispatch(removeVisible(filter))
+    onRemoveAll: () => dispatch(removeAll())
   }
 }
 

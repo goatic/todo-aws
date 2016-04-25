@@ -29,7 +29,7 @@ class ListControls extends Component{
     const {
       visibility,
       onToggleVisibility,
-      onRemoveVisible
+      onRemoveAll
     } = this.props
 
     const {
@@ -70,7 +70,7 @@ class ListControls extends Component{
           </div>
           <div className="category-left">
             <svg
-              onClick={() => onRemoveVisible(visibility)}
+              onClick={onRemoveAll}
               className="trash-all-icon"
               viewBox="0 0 24 24"
             >

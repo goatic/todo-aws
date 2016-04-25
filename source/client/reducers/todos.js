@@ -1,8 +1,8 @@
 const GET_ALL = 'GET_ALL'
 const ADD_TODO = 'ADD_TODO'
 const REMOVE_TODO = 'REMOVE_TODO'
-const REMOVE_VISIBLE ='REMOVE_VISIBLE'
-const TOGGLE_DONE_TODO = 'TOGGLE_DONE_TODO'
+const REMOVE_TODOS ='REMOVE_TODOS'
+const SET_ISDONE_TODO = 'SET_ISDONE_TODO'
 
 function reducer (state = [], action) {
   switch(action.type) {
@@ -10,33 +10,18 @@ function reducer (state = [], action) {
       return [action.todo, ...state]
 
     case GET_ALL:
+    case REMOVE_TODOS:
       return [...action.todos]
 
     case REMOVE_TODO:
       return state.filter((todo) => todo._id !== action._id)
 
-    case TOGGLE_DONE_TODO:
+    case SET_ISDONE_TODO:
       return state.map((todo) => (
         todo._id === action.todo._id
         ? action.todo
         : todo
       ))
-
-    case REMOVE_VISIBLE:
-      //temporary - this nested reducer is coupled to visibility and todos
-      switch(action.filter) {
-        case 'SHOW_ALL':
-          return []
-
-        case 'SHOW_DONE':
-          return state.filter((todo) => !todo.done)
-
-        case 'SHOW_TBD':
-          return state.filter((todo) => todo.done)
-
-        default:
-          return state
-      }
 
     default:
       return state
@@ -49,6 +34,6 @@ export {
   ADD_TODO,
   GET_ALL,
   REMOVE_TODO,
-  TOGGLE_DONE_TODO,
-  REMOVE_VISIBLE
+  SET_ISDONE_TODO,
+  REMOVE_TODOS
 }
