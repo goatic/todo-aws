@@ -40,7 +40,8 @@ async function toggleDone(_id){
     const todo = await get(_id)
       await (await getCollection(TODOS_COLLECTION))
         .updateOne({_id: toObjectId(_id)}, {
-            done: !todo.done
+            done: !todo.done,
+            doneAt: Date.now()
         })
     todo.done = !todo.done
   return todo

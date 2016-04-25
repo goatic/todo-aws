@@ -1,5 +1,3 @@
-import fetch from 'isomorphic-fetch'
-
 import {
   ADD_TODO,
   GET_ALL,
@@ -8,61 +6,103 @@ import {
   REMOVE_VISIBLE
 } from '../reducers/todos'
 
-function add(todo) {
-  return {
-    type: ADD_TODO,
-    todo
-  }
+import {queryApi} from '../utilities'
+
+function add(title) {
+  return queryApi(
+    `mutation {
+        addTodo(
+          title: "${title}"
+        ){
+          _id,
+          title,
+          done,
+          createdAt,
+          doneAt
+        }
+      }`,
+    (error, data, dispatch) => dispatch({
+        type: error ? 'Not Implemented Yet' : ADD_TODO,
+        todo: error ? undefined : data.addTodo,
+        error: error ? error : undefined
+    })
+  )
 }
 
 function getAll() {
-  return async function (dispatch) {
-    try {
-
-      const response = await fetch(`${window.location.origin}/api`, {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify({query: `query {todos{_id,name,isDone,createdAt,doneAt}}`})
-      })
-
-      if(!response.ok) {
-        throw Error('network error! response not ok')
-      }
-
-      const result = await response.json()
-
-      if(result.errors) {
-        throw Error('there was API errors')
-      }
-
-      dispatch({
-        type: GET_ALL,
-        todos: result.data.todos
-      })
-
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  return queryApi(
+    `query {
+        todos{
+          _id,
+          title,
+          done,
+          createdAt,
+          doneAt
+        }
+      }`,
+    (error, data, dispatch) => dispatch({
+        type: error ? 'Not Implemented Yet' : GET_ALL,
+        todos: error ? undefined : data.todos,
+        error: error ? error : undefined
+    })
+  )
 }
 
 function toggleDone(_id) {
-  return {
-    type: TOGGLE_DONE_TODO,
-    _id
-  }
+  return queryApi(
+    `mutation {
+        toggleTodoDone(
+          _id: "${_id}"
+        ){
+          _id,
+          title,
+          done,
+          createdAt,
+          doneAt
+        }
+      }`,
+    (error, data, dispatch) => dispatch({
+        type: error ? 'Not Implemented Yet' : TOGGLE_DONE_TODO,
+        todo: error ? undefined : data.toggleTodoDone,
+        error: error ? error : undefined
+    })
+  )
 }
 
 function remove(_id) {
-  return {
-    type: REMOVE_TODO,
-    _id
-  }
+  return queryApi(
+    `mutation {
+        removeTodo(
+          _id: "${_id}"
+        )
+      }`,
+    (error, data, dispatch) => dispatch({
+        type: error ? 'Not Implemented Yet' : REMOVE_TODO,
+        _id: error ? undefined : data.removeTodo,
+        error: error ? error : undefined
+    })
+  )
 }
 
 function removeVisible(filter) {
+  return queryApi(
+    `mutation {
+        removeTodos(
+          _id: "${_id}"
+        ){
+          _id,
+          title,
+          done,
+          createdAt,
+          doneAt
+        }
+      }`,
+    (error, data, dispatch) => dispatch({
+        type: error ? 'Not Implemented Yet' : REMOVE_VISIBLE,
+        _id: error ? undefined : data.removeTodos,
+        error: error ? error : undefined
+    })
+  )
   return {
     type: REMOVE_VISIBLE,
     filter

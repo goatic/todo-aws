@@ -21,15 +21,7 @@ function mapDispatchToProps (dispatch) {
         return
       }
 
-      const todo = {
-        _id: Math.random(),
-        title: title.value,
-        done: false,
-        doneAt: undefined,
-        createdAt: Date.now()
-      }
-
-      dispatch(add(todo))
+      dispatch(add(title.value))
 
       title.value = ''
     }

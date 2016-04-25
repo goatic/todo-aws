@@ -17,8 +17,8 @@ function reducer (state = [], action) {
 
     case TOGGLE_DONE_TODO:
       return state.map((todo) => (
-        todo._id === action._id
-        ? Object.assign({}, todo, {done: !todo.done, doneAt: todo.done ? undefined : Date.now()})
+        todo._id === action.todo._id
+        ? action.todo
         : todo
       ))
 
