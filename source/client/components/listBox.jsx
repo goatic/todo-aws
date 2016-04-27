@@ -17,9 +17,9 @@ class ListBox extends Component{
     const visibleTodos = todos.filter((todo) => {
       switch(visibility) {
         case 'SHOW_TBD':
-          return !todo.done
+          return !todo.isDone
         case 'SHOW_DONE':
-          return todo.done
+          return todo.isDone
         default:
           return todo
       }

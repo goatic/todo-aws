@@ -22,7 +22,9 @@ class ListControls extends Component{
         ? "0%"
         : this.props.visibility === 'SHOW_TBD'
         ? "33%"
-        : "66%"
+        : this.props.visibility === 'SHOW_DONE'
+        ? "66%"
+        : "99%"
     }
 
   render(){
