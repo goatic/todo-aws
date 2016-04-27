@@ -11,21 +11,21 @@ class ListItem extends Component{
     const {
       todo,
       onRemove,
-      onToggleDone
+      onSetIsDone
     } = this.props
 
     return (
       <div className="element"
       >
         <div
-          onClick={() => onToggleDone(todo._id)}
+          onClick={() => onSetIsDone(todo._id, !todo.isDone)}
           className="list-left"
         >
           <div
-            className={`list-circle inline-middle ${ todo.done ? "checked" : ""}`}
+            className={`list-circle inline-middle ${ todo.isDone ? "checked" : ""}`}
           >
             <svg
-              className={`checkmark-icon absolute-center ${ todo.done ? "show" : ""}`}
+              className={`checkmark-icon absolute-center ${ todo.isDone ? "show" : ""}`}
               viewBox="0 0 24 24"
             >
               <use xlinkHref="#checkmark-icon"></use>

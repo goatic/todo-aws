@@ -6,13 +6,13 @@ import Component from '../components/listItem.jsx'
 
 import {
   remove,
-  toggleDone
+  setIsDone
 } from '../actions/todos'
 
 function mapDispatchToProps (dispatch) {
   return {
     onRemove: (_id) => dispatch(remove(_id)),
-    onToggleDone: (_id) => dispatch(toggleDone(_id))
+    onSetIsDone: (_id, isDone) => dispatch(setIsDone(_id, isDone))
   }
 }
 

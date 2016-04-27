@@ -17,7 +17,7 @@ const todo = new GraphQLObjectType({
             type: GraphQLString,
             description: 'The title of the task'
         },
-        done:     {
+        isDone:     {
             type: GraphQLBoolean,
             description: 'Whether the task is done'
         },

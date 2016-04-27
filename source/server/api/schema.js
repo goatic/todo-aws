@@ -10,8 +10,8 @@ import {
 import {
     add as addTodo,
     remove as removeTodo,
-    toggleDone as toggleTodoDone,
-    removeMore as removeTodos
+    setIsDone as setTodoIsDone,
+    removeAll as removeTodos
 } from './todos/mutations'
 
 const schema = new GraphQLSchema({
@@ -26,7 +26,7 @@ const schema = new GraphQLSchema({
         fields: {
             addTodo,
             removeTodo,
-            toggleTodoDone,
+            setTodoIsDone,
             removeTodos
         }
     })

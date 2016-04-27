@@ -1,12 +1,14 @@
 import {
   ADD_TODO,
   GET_ALL,
-  TOGGLE_DONE_TODO,
+  SET_ISDONE_TODO,
   REMOVE_TODO,
-  REMOVE_VISIBLE
+  REMOVE_TODOS
 } from '../reducers/todos'
 
-import {queryApi} from '../utilities'
+import {
+  queryApi
+} from '../utilities'
 
 function add(title) {
   return queryApi(
@@ -16,16 +18,16 @@ function add(title) {
         ){
           _id,
           title,
-          done,
+          isDone,
           createdAt,
           doneAt
         }
       }`,
-    (error, data, dispatch) => dispatch({
-        type: error ? 'Not Implemented Yet' : ADD_TODO,
-        todo: error ? undefined : data.addTodo,
-        error: error ? error : undefined
-    })
+    (error, data, dispatch) => { console.log(error,data); dispatch({
+            type: error ? 'Not Implemented Yet' : ADD_TODO,
+            todo: error ? undefined : data.addTodo,
+            error: error ? error : undefined
+        })}
   )
 }
 
@@ -35,7 +37,7 @@ function getAll() {
         todos{
           _id,
           title,
-          done,
+          isDone,
           createdAt,
           doneAt
         }
@@ -48,22 +50,23 @@ function getAll() {
   )
 }
 
-function toggleDone(_id) {
+function setIsDone(_id, isDone) {
   return queryApi(
     `mutation {
-        toggleTodoDone(
-          _id: "${_id}"
+        setTodoIsDone(
+          _id: "${_id}",
+          isDone: ${isDone}
         ){
           _id,
           title,
-          done,
+          isDone,
           createdAt,
           doneAt
         }
       }`,
     (error, data, dispatch) => dispatch({
-        type: error ? 'Not Implemented Yet' : TOGGLE_DONE_TODO,
-        todo: error ? undefined : data.toggleTodoDone,
+        type: error ? 'Not Implemented Yet' : SET_ISDONE_TODO,
+        todo: error ? undefined : data.setTodoIsDone,
         error: error ? error : undefined
     })
   )
@@ -84,35 +87,29 @@ function remove(_id) {
   )
 }
 
-function removeVisible(filter) {
+function removeAll() {
   return queryApi(
     `mutation {
-        removeTodos(
-          _id: "${_id}"
-        ){
+        removeTodos{
           _id,
           title,
-          done,
+          isDone,
           createdAt,
           doneAt
         }
       }`,
     (error, data, dispatch) => dispatch({
-        type: error ? 'Not Implemented Yet' : REMOVE_VISIBLE,
-        _id: error ? undefined : data.removeTodos,
+        type: error ? 'Not Implemented Yet' : REMOVE_TODOS,
+        todos: error ? undefined : data.removeTodos,
         error: error ? error : undefined
     })
   )
-  return {
-    type: REMOVE_VISIBLE,
-    filter
-  }
 }
 
 export {
   add,
   getAll,
-  toggleDone,
+  setIsDone,
   remove,
-  removeVisible
+  removeAll
 }

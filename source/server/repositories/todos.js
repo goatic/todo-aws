@@ -9,7 +9,7 @@ async function add(title){
     const todo = {
         title,
         createdAt: Date.now(),
-        done: false,
+        isDone: false,
         doneAt: undefined,
     }
     await (await getCollection(TODOS_COLLECTION))
@@ -36,22 +36,20 @@ async function remove(_id){
   return _id
 }
 
-async function toggleDone(_id){
-    const todo = await get(_id)
+async function setIsDone(_id, isDone){
       await (await getCollection(TODOS_COLLECTION))
         .updateOne({_id: toObjectId(_id)}, {
-            done: !todo.done,
-            doneAt: Date.now()
+            $set: {
+                isDone: isDone,
+                doneAt: isDone ? Date.now() : undefined
+            }
         })
-    todo.done = !todo.done
-  return todo
+  return await get(_id)
 }
 
-async function removeMore(ids){
+async function removeAll(){
     await (await getCollection(TODOS_COLLECTION))
-        .remove({
-            _id: {$in: ids.map(id => toObjectId(id))}
-        })
+        .remove()
     return await getAll()
 }
 
@@ -59,6 +57,6 @@ export {
     add,
     getAll,
     remove,
-    toggleDone,
-    removeMore
+    setIsDone,
+    removeAll
 }
