@@ -1,5 +1,6 @@
 node_modules
 *.log
+*.zip
 .DS_Store
 database/*
 !database/.stay
