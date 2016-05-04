@@ -4,19 +4,19 @@ os: linux
 
 files:
   - source: /
-    destination: /home/ec2-user/todo-aws
+    destination: /home/ubuntu/todo-aws
 
 permissions:
   - object: /
     pattern: "**"
-    owner: ec2-user
-    group: ec2-user
+    owner: ubuntu
+    group: ubuntu
 
 hooks:
   ApplicationStop:
     - location: scripts/stop
       timeout: 10
-      runas: ec2-user
+      runas: ubuntu
 
   BeforeInstall:
     - location: scripts/prerequisites
@@ -26,14 +26,14 @@ hooks:
   AfterInstall:
     - location: scripts/install
       timeout: 1200
-      runas: ec2-user
+      runas: ubuntu
 
   ApplicationStart:
     - location: scripts/start
       timeout: 60
-      runas: ec2-user
+      runas: ubuntu
 
   ValidateService:
     - location: scripts/validate
       timeout: 10
-      runas: ec2-user
+      runas: ubuntu
