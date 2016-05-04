@@ -18,6 +18,11 @@ hooks:
       timeout: 10
       runas: ec2-user
 
+  BeforeInstall:
+    - location: scripts/prerequisites
+      timeout: 1200
+      runas: es2-user
+
   AfterInstall:
     - location: scripts/install
       timeout: 1200
