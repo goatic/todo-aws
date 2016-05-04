@@ -14,21 +14,21 @@ permissions:
 
 hooks:
   ApplicationStop:
-    - location: bin/stop
+    - location: scripts/stop
       timeout: 10
       runas: ec2-user
 
   AfterInstall:
-    - location: bin/install
+    - location: scripts/install
       timeout: 1200
       runas: ec2-user
 
   ApplicationStart:
-    - location: bin/start
+    - location: scripts/start
       timeout: 60
       runas: ec2-user
 
   ValidateService:
-    - location: bin/validate
+    - location: scripts/validate
       timeout: 10
       runas: ec2-user

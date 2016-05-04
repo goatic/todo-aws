@@ -4,11 +4,12 @@
   "description": "todo list app for aws setup",
   "main": "entry.js",
   "scripts": {
-    "start": "npm run database & npm run server & npm run client",
+    "build": "NODE_ENV=production webpack -p",
+    "start": "NODE_ENV=production node ./source/server/entry",
+    "develop": "npm run database & npm run server & npm run client",
     "client": "webpack-dev-server --inline --hot --port 3000",
     "server": "nodemon ./source/server/entry",
-    "database": "mongod --dbpath database --port 3002",
-    "build": "webpack"
+    "database": "mongod --dbpath database --port 3002"
   },
   "repository": {
     "type": "git",
