@@ -7,7 +7,7 @@ let context
 
 async function getCollection(name){
     if (!context)
-        context = await MongoClient.connect('mongodb://localhost:3002/todo-aws')
+        context = await MongoClient.connect(process.env.MONGO_URL || 'mongodb://localhost:3002/todo-aws')
     return context.collection(name)
 }
 
