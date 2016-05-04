@@ -23,11 +23,11 @@ function add(title) {
           doneAt
         }
       }`,
-    (error, data, dispatch) => { console.log(error,data); dispatch({
-            type: error ? 'Not Implemented Yet' : ADD_TODO,
-            todo: error ? undefined : data.addTodo,
-            error: error ? error : undefined
-        })}
+    (error, data, dispatch) => dispatch({
+      type: error ? 'Not Implemented Yet' : ADD_TODO,
+      todo: error ? undefined : data.addTodo,
+      error: error ? error : undefined
+    })
   )
 }
 

@@ -5,7 +5,7 @@
   "main": "entry.js",
   "scripts": {
     "build": "NODE_ENV=production webpack -p",
-    "start": "NODE_ENV=production node ./source/server/entry",
+    "start": "NODE_ENV=production node ./source/server/entry & npm run database",
     "develop": "npm run database & npm run server & npm run client",
     "client": "webpack-dev-server --inline --hot --port 3000",
     "server": "nodemon ./source/server/entry",

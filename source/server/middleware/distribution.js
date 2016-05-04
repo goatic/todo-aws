@@ -1,15 +1,14 @@
 import send from 'koa-send'
 
-async function distribution(context, next){
-  if (context.path.startsWith('/distribution/')){
-    await send(
-      context,
-      context.path
-    )
-  }
-  else{
-    await next()
-  }
+async function distribution(context){
+  await send(
+    context,
+    context.path.startsWith('/distribution/')
+    ? context.path
+    : context.path === '/api'
+      ? '/distribution/graphiql.html'
+      : '/distribution/client.html'
+  )
 }
 
 export default distribution
