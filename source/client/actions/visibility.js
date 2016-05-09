@@ -1,4 +1,4 @@
-function toggleVisibility(filter) {
+function toggleVisibility (filter) {
   return {
     type: filter
   }

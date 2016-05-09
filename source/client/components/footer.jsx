@@ -4,15 +4,15 @@ import React, {
 
 import './footer.css'
 
-class Footer extends Component{
-  render(){
+class Footer extends Component {
+  render () {
     return (
       <footer
       >
-        <p className="Roboto-thin no-select">© Choc-Devs-9k, 2016</p>
+        <p className='Roboto-thin no-select'>© Choc-Devs-9k, 2016</p>
       </footer>
     )
   }
 }
 
-  export default Footer
+export default Footer

@@ -6,7 +6,7 @@ import moment from 'moment'
 
 import './listItem.css'
 
-class ListItem extends Component{
+class ListItem extends Component {
   render () {
     const {
       todo,
@@ -15,37 +15,39 @@ class ListItem extends Component{
     } = this.props
 
     return (
-      <div className="element"
+      <div className='element'
       >
         <div
           onClick={() => onSetIsDone(todo._id, !todo.isDone)}
-          className="list-left"
+          className='list-left'
         >
           <div
-            className={`list-circle inline-middle ${ todo.isDone ? "checked" : ""}`}
+            className={`list-circle inline-middle ${todo.isDone ? 'checked' : ''}`}
           >
             <svg
-              className={`checkmark-icon absolute-center ${ todo.isDone ? "show" : ""}`}
-              viewBox="0 0 24 24"
+              className={`checkmark-icon absolute-center ${todo.isDone ? 'show' : ''}`}
+              viewBox='0 0 24 24'
             >
-              <use xlinkHref="#checkmark-icon"></use>
+              <use xlinkHref='#checkmark-icon'></use>
             </svg>
-          </div>{/*
-          */}<div className="list-text inline-middle">
-            <p className="Roboto list-title no-select">{todo.title}</p>
-            <p className="Roboto-thin list-date no-select"> { todo.doneAt ? 'done' : 'added'} { moment(todo.doneAt ? todo.doneAt : todo.createdAt).fromNow() } </p>
+          </div>
+          <div className='list-text inline-middle'>
+            <p className='Roboto list-title no-select'>{todo.title}</p>
+            <p className='Roboto-thin list-date no-select'>
+              {todo.doneAt ? 'done' : 'added'}
+              {moment(todo.doneAt ? todo.doneAt : todo.createdAt).fromNow()}
+            </p>
           </div>
         </div>
-        {/* watch out for blurry res - still possible with SVG */}
         <div
-          className="list-right"
+          className='list-right'
           >
           <svg
-            className="trash-icon"
-            viewBox="0 0 24 24"
+            className='trash-icon'
+            viewBox='0 0 24 24'
             onClick={() => onRemove(todo._id)}
           >
-            <use xlinkHref="#trash-icon"></use>
+            <use xlinkHref='#trash-icon'></use>
           </svg>
         </div>
       </div>
@@ -53,4 +55,4 @@ class ListItem extends Component{
   }
 }
 
-  export default ListItem
+export default ListItem

@@ -1,6 +1,14 @@
-import { ADD_TODO, GET_ALL, SET_ISDONE_TODO, REMOVE_TODO, REMOVE_TODOS } from '../reducers/todos'
+import {
+  ADD_TODO,
+  GET_ALL,
+  SET_ISDONE_TODO,
+  REMOVE_TODO,
+  REMOVE_TODOS
+} from '../reducers/todos'
 
-import { queryApi } from '../utilities'
+import {
+  queryApi
+} from '../utilities'
 
 function add (title) {
   return queryApi(
@@ -18,7 +26,7 @@ function add (title) {
     (error, data, dispatch) => dispatch({
       type: error ? 'Not Implemented Yet' : ADD_TODO,
       todo: error ? undefined : data.addTodo,
-      error: error ? error : undefined
+      error
     })
   )
 }
@@ -37,7 +45,7 @@ function getAll () {
     (error, data, dispatch) => dispatch({
       type: error ? 'Not Implemented Yet' : GET_ALL,
       todos: error ? undefined : data.todos,
-      error: error ? error : undefined
+      error
     })
   )
 }
@@ -59,7 +67,7 @@ function setIsDone (_id, isDone) {
     (error, data, dispatch) => dispatch({
       type: error ? 'Not Implemented Yet' : SET_ISDONE_TODO,
       todo: error ? undefined : data.setTodoIsDone,
-      error: error ? error : undefined
+      error: error
     })
   )
 }
@@ -74,7 +82,7 @@ function remove (_id) {
     (error, data, dispatch) => dispatch({
       type: error ? 'Not Implemented Yet' : REMOVE_TODO,
       _id: error ? undefined : data.removeTodo,
-      error: error ? error : undefined
+      error: error
     })
   )
 }
@@ -93,7 +101,7 @@ function removeAll () {
     (error, data, dispatch) => dispatch({
       type: error ? 'Not Implemented Yet' : REMOVE_TODOS,
       todos: error ? undefined : data.removeTodos,
-      error: error ? error : undefined
+      error: error
     })
   )
 }

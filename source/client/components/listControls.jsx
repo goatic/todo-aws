@@ -4,7 +4,7 @@ import React, {
 
 import './listControls.css'
 
-class ListControls extends Component{
+class ListControls extends Component {
 
   constructor () {
     super()
@@ -17,19 +17,18 @@ class ListControls extends Component{
   }
 
   unsetSlider () {
-      this.refs.slider.style.marginLeft =
-        this.props.visibility === 'SHOW_ALL'
-        ? "0%"
-        : this.props.visibility === 'SHOW_TBD'
-        ? "33%"
+    this.refs.slider.style.marginLeft =
+      this.props.visibility === 'SHOW_ALL'
+      ? '0%'
+      : this.props.visibility === 'SHOW_TBD'
+        ? '33%'
         : this.props.visibility === 'SHOW_DONE'
-        ? "66%"
-        : "99%"
-    }
+          ? '66%'
+          : '99%'
+  }
 
-  render(){
+  render () {
     const {
-      visibility,
       onToggleVisibility,
       onRemoveAll
     } = this.props
@@ -41,42 +40,46 @@ class ListControls extends Component{
 
     return (
       <div
-        className="category-container"
+        className='category-container'
       >
         <section>
-          <div className="category-left">
-            <ul className="Roboto-thin no-select">
+          <div className='category-left'>
+            <ul className='Roboto-thin no-select'>
               <li
-                id="one"
-                className="one"
+                id='one'
+                className='one'
                 onClick={() => onToggleVisibility('SHOW_ALL')}
                 onMouseEnter={() => setSlider(0)}
                 onMouseLeave={unsetSlider}
-              ><a href="#">All</a></li>{/*
-              */}<li
-                    className="two"
-                    onClick={() => onToggleVisibility('SHOW_TBD')}
-                    onMouseEnter={() => setSlider(33)}
-                    onMouseLeave={unsetSlider}
-                  ><a href="#">TBD</a></li>{/*
-              */}<li
-                    className="three"
-                    onClick={() => onToggleVisibility('SHOW_DONE')}
-                    onMouseEnter={() => setSlider(66)}
-                    onMouseLeave={unsetSlider}
-                  ><a href="#">Done</a></li>
-              <hr
-                ref='slider'
-              />
+              >
+                <a href='#'>All</a>
+              </li>
+              <li
+                className='two'
+                onClick={() => onToggleVisibility('SHOW_TBD')}
+                onMouseEnter={() => setSlider(33)}
+                onMouseLeave={unsetSlider}
+              >
+                <a href='#'>TBD</a>
+              </li>
+              <li
+                className='three'
+                onClick={() => onToggleVisibility('SHOW_DONE')}
+                onMouseEnter={() => setSlider(66)}
+                onMouseLeave={unsetSlider}
+              >
+                <a href='#'>Done</a>
+              </li>
+              <hr ref='slider' />
             </ul>
           </div>
-          <div className="category-left">
+          <div className='category-left'>
             <svg
               onClick={onRemoveAll}
-              className="trash-all-icon"
-              viewBox="0 0 24 24"
+              className='trash-all-icon'
+              viewBox='0 0 24 24'
             >
-              <use xlinkHref="#trash-all-icon"></use>
+              <use xlinkHref='#trash-all-icon'></use>
             </svg>
           </div>
         </section>
@@ -85,4 +88,4 @@ class ListControls extends Component{
   }
 }
 
-  export default ListControls
+export default ListControls

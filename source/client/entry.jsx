@@ -14,9 +14,9 @@ import store from './store'
 
 import Application from './containers/application'
 
-render (
+render(
   <Provider store={store}>
-	 <Application/>
+    <Application />
   </Provider>,
 	document.getElementById('root')
 )

@@ -3,7 +3,7 @@ const SHOW_TBD = 'SHOW_TBD'
 const SHOW_DONE = 'SHOW_DONE'
 
 function reducer (state = SHOW_ALL, action) {
-  switch(action.type) {
+  switch (action.type) {
     case SHOW_ALL:
     case SHOW_TBD:
     case SHOW_DONE:

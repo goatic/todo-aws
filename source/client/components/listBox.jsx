@@ -7,15 +7,15 @@ import './listBox.css'
 import ListItem from '../containers/listItem'
 import ListLabel from './listLabel.jsx'
 
-class ListBox extends Component{
-  render(){
+class ListBox extends Component {
+  render () {
     const {
       todos,
       visibility
     } = this.props
 
     const visibleTodos = todos.filter((todo) => {
-      switch(visibility) {
+      switch (visibility) {
         case 'SHOW_TBD':
           return !todo.isDone
         case 'SHOW_DONE':
@@ -23,11 +23,10 @@ class ListBox extends Component{
         default:
           return todo
       }
-
     })
 
     return (
-      <div className="list-container"
+      <div className='list-container'
       >
         {
           visibleTodos.length
@@ -37,11 +36,11 @@ class ListBox extends Component{
               todo={todo}
             />
           ))
-          : <ListLabel/>
+          : <ListLabel />
         }
       </div>
     )
   }
 }
 
-  export default ListBox
+export default ListBox
