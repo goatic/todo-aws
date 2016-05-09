@@ -7,7 +7,7 @@ import schema from '../api/schema'
 import {
   isGraphQLPost,
   getGraphQLBody
-} from '../api/utilities'
+} from '../utilities'
 
 async function api (context, next) {
   if (isGraphQLPost(context.request)) {

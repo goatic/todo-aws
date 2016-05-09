@@ -1,7 +1,7 @@
 {
-  "name": "todo-aws",
+  "name": "todos",
   "version": "0.1.0",
-  "description": "todo list app for aws setup",
+  "description": "a todo list app",
   "main": "entry.js",
   "standard": {
     "parser": "babel-eslint"
@@ -25,7 +25,7 @@
     "kappa",
     "same"
   ],
-  "author": "goatic <goatic@live.dk> & w0ns88 <dotdjw@gmail.com>",
+  "author": "goatic <goatic@live.dk>, w0ns88 <dotdjw@gmail.com> & Ron-Sal",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/goatic/todo-aws/issues"

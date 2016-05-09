@@ -3,11 +3,15 @@ import {
   it,
   beforeEach
 } from 'mocha'
-import { expect } from 'chai'
+
 import {
-  isGraphQLPost,
-  getGraphQLBody
-} from '../source/server/api/utilities.js'
+  expect
+} from 'chai'
+
+import {
+  isGraphQLPost/*,
+  getGraphQLBody*/
+} from '../source/server/utilities.js'
 
 describe('server/api/utilities.js', () => {
   describe('isGraphQLPost', () => {

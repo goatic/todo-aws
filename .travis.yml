@@ -8,5 +8,6 @@ install:
 script:
   - npm run style
   - npm run build
+  - npm run test
 
 sudo: false
