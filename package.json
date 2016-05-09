@@ -13,7 +13,8 @@
     "client": "webpack-dev-server --inline --hot --port 3000",
     "server": "nodemon ./source/server/entry",
     "database": "mongod --dbpath database --port 3002",
-    "style": "standard --verbose | snazzy"
+    "style": "standard --verbose | snazzy",
+    "test": "mocha --compilers js:babel-register --require babel-polyfill --reporter spec"
   },
   "repository": {
     "type": "git",
