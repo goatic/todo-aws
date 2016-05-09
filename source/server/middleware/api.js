@@ -9,10 +9,10 @@ import {
   getGraphQLBody
 } from '../api/utilities'
 
-async function api (context, next){
-  if(isGraphQLPost(context.request)){
-    const   query = (await getGraphQLBody(context.request)).query
-    const   result = await graphql(schema, query)
+async function api (context, next) {
+  if (isGraphQLPost(context.request)) {
+    const query = (await getGraphQLBody(context.request)).query
+    const result = await graphql(schema, query)
 
     context.body = result
   } else {

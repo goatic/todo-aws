@@ -1,6 +1,6 @@
 import send from 'koa-send'
 
-async function distribution(context){
+async function distribution (context) {
   await send(
     context,
     context.path.startsWith('/distribution/')

@@ -1,35 +1,35 @@
 import {
-    GraphQLObjectType,
-    GraphQLBoolean,
-    GraphQLFloat,
-    GraphQLString
+  GraphQLObjectType,
+  GraphQLBoolean,
+  GraphQLFloat,
+  GraphQLString
 } from 'graphql'
 
 const todo = new GraphQLObjectType({
-    name: 'Todo',
-    description: 'A Task that needs to be done',
-    fields: {
-        _id: {
-            type: GraphQLString,
-            description: 'The ID of the todo'
-        },
-        title:       {
-            type: GraphQLString,
-            description: 'The title of the task'
-        },
-        isDone:     {
-            type: GraphQLBoolean,
-            description: 'Whether the task is done'
-        },
-        createdAt:  {
-            type: GraphQLFloat,
-            description: 'When the task was created'
-        },
-        doneAt:     {
-            type: GraphQLFloat,
-            description: 'When the task was done'
-        }
+  name: 'Todo',
+  description: 'A Task that needs to be done',
+  fields: {
+    _id: {
+      type: GraphQLString,
+      description: 'The ID of the todo'
+    },
+    title: {
+      type: GraphQLString,
+      description: 'The title of the task'
+    },
+    isDone: {
+      type: GraphQLBoolean,
+      description: 'Whether the task is done'
+    },
+    createdAt: {
+      type: GraphQLFloat,
+      description: 'When the task was created'
+    },
+    doneAt: {
+      type: GraphQLFloat,
+      description: 'When the task was done'
     }
+  }
 })
 
 export default todo
