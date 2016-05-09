@@ -3,13 +3,17 @@
   "version": "0.1.0",
   "description": "todo list app for aws setup",
   "main": "entry.js",
+  "standard": {
+    "parser": "babel-eslint"
+  },
   "scripts": {
     "build": "NODE_ENV=production webpack -p",
     "start": "NODE_ENV=production MONGO_URL=mongodb://aws:aws@ds013162.mlab.com:13162/todo-aws node ./source/server/entry",
     "develop": "npm run database & npm run server & npm run client",
     "client": "webpack-dev-server --inline --hot --port 3000",
     "server": "nodemon ./source/server/entry",
-    "database": "mongod --dbpath database --port 3002"
+    "database": "mongod --dbpath database --port 3002",
+    "style": "standard --verbose | snazzy"
   },
   "repository": {
     "type": "git",
@@ -27,6 +31,7 @@
   },
   "homepage": "https://github.com/goatic/todo-aws#readme",
   "devDependencies": {
+    "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-async-to-generator": "^6.7.4",
     "babel-polyfill": "^6.7.4",
@@ -39,6 +44,8 @@
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-hot-loader": "^1.3.0",
+    "snazzy": "^4.0.0",
+    "standard": "^7.0.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1"
