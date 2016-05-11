@@ -18,6 +18,7 @@ class ListItem extends Component {
       <div className='element'
       >
         <div
+          ref='setIsDone'
           onClick={() => onSetIsDone(todo._id, !todo.isDone)}
           className='list-left'
         >
@@ -32,7 +33,10 @@ class ListItem extends Component {
             </svg>
           </div>
           <div className='list-text inline-middle'>
-            <p className='Roboto list-title no-select'>{todo.title}</p>
+            <p
+              className='Roboto list-title no-select'
+              ref='title'
+            >{todo.title}</p>
             <p className='Roboto-thin list-date no-select'>
               {todo.doneAt ? 'done' : 'added'}
               {moment(todo.doneAt ? todo.doneAt : todo.createdAt).fromNow()}
@@ -43,6 +47,7 @@ class ListItem extends Component {
           className='list-right'
           >
           <svg
+            ref='remove'
             className='trash-icon'
             viewBox='0 0 24 24'
             onClick={() => onRemove(todo._id)}
