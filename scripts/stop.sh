@@ -1,3 +1,3 @@
 #!/bin/bash
 
-killall node
+exec("kill -9 $pid");
