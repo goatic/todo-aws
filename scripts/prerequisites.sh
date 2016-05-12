@@ -1,7 +1,8 @@
 #!/bin/bash
 
-sudo apt-get update
+yum check-update
 
 #NodeJS 6.0.0
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install -y nodejs npm
+curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
+yum -y install nodejs
+yum groupinstall 'Development Tools'
