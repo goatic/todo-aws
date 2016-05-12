@@ -1,9 +1,11 @@
 #!/bin/bash
 
-sudo su -
-sudo yum check-update
+yum check-update
 
 #NodeJS 6.0.0
 curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
-sudo yum -y install nodejs npm
-sudo yum groupinstall -y 'Development Tools'
+yum -y install nodejs npm
+yum groupinstall -y 'Development Tools'
+
+node --version
+npm -v

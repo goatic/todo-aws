@@ -16,14 +16,14 @@ hooks:
   BeforeInstall:
     - location: scripts/prerequisites.sh
       timeout: 1200
-      runas: ec2-user
+      runas: root
 
   AfterInstall:
     - location: scripts/install.sh
       timeout: 1200
-      runas: ec2-user
+      runas: root
 
   ApplicationStart:
     - location: scripts/start.sh
       timeout: 60
-      runas: ec2-user
+      runas: root

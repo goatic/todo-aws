@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo npm run build
-sudo npm run start
+npm run build
+npm run start
