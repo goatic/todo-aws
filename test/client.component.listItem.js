@@ -64,5 +64,4 @@ describe('client/components/listItem.jsx', () => {
     expect(action.calledOnce).to.equal(true)
     expect(action.calledWith('setIsDone')).to.equal(true)
   })
-
 })
