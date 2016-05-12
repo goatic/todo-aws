@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd tmp/scripts
+cd tmp/todos/scripts
 npm run build
 npm run start

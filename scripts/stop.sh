@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd tmp/scripts
+cd tmp/todos/scripts
 killall node

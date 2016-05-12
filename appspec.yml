@@ -3,8 +3,8 @@ version: 0.0
 os: linux
 
 files:
-  - source: /todos
-    destination: /home/ec2-user/todos
+  - source: /
+    destination: /tmp/todos
 
 hooks:
   ApplicationStop:

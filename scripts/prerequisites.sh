@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd tmp/scripts
+cd tmp/todos/scripts
 apt-get update
 
 #NodeJS 6.0.0
