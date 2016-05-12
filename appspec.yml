@@ -1,0 +1,39 @@
+version: 0.0
+
+os: linux
+
+files:
+  - source: /
+    destination: /home/ec2-user/todo-aws
+
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ec2-user
+    group: ec2-user
+
+hooks:
+  ApplicationStop:
+    - location: scripts/stop
+      timeout: 10
+      runas: ec2-user
+
+  BeforeInstall:
+    - location: scripts/prerequisites
+      timeout: 1200
+      runas: ec2-user
+
+  AfterInstall:
+    - location: scripts/install
+      timeout: 1200
+      runas: ec2-user
+
+  ApplicationStart:
+    - location: scripts/start
+      timeout: 60
+      runas: ec2-user
+
+  ValidateService:
+    - location: scripts/validate
+      timeout: 10
+      runas: ec2-user
