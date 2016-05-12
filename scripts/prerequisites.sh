@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo su -
 sudo yum check-update
 
 #NodeJS 6.0.0
