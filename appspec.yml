@@ -4,7 +4,7 @@ os: linux
 
 files:
   - source: /
-    destination: /tmp/todos
+    destination: /home/ec2-user/todos
 
 hooks:
   ApplicationStop:
