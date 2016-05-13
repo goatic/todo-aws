@@ -4,8 +4,9 @@ import api from './middleware/api'
 import distribution from './middleware/distribution'
 
 const app = new Koa()
+const PORT = process.env.PORT || 3001
 
 app
     .use(api)
     .use(distribution)
-    .listen(3001, () => console.log('listening on port 3001'))
+    .listen(PORT, () => console.log(`Listening on port ${PORT}`))
