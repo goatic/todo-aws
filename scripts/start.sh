@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Invoke the Forever module (to START our Node.js server).
+cd /home/ec2-user/todos
 ./node_modules/forever/bin/forever \
 start \
 -al forever.log \
