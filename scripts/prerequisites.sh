@@ -9,3 +9,5 @@ yum groupinstall -y 'Development Tools'
 
 node --version
 npm -v
+
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to 1337
