@@ -5,13 +5,13 @@ import {
 import schema from '../api/schema'
 
 import {
-  isGraphQLPost,
-  getGraphQLBody
+  isApiQuery,
+  parseApiQuery
 } from '../utilities'
 
 async function api (context, next) {
-  if (isGraphQLPost(context.request)) {
-    const query = (await getGraphQLBody(context.request)).query
+  if (isApiQuery(context.request)) {
+    const query = (await parseApiQuery(context.request)).query
     const result = await graphql(schema, query)
 
     context.body = result
