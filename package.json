@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "NODE_ENV=production webpack -p",
-    "start": "PORT=1337 NODE_ENV=production MONGO_URL=mongodb://aws:aws@ds013162.mlab.com:13162/todo-aws node ./source/server/entry",
+    "start": "NODE_ENV=production MONGO_URL=mongodb://aws:aws@ds011422.mlab.com:11422/todo-aws node ./source/server/entry",
     "develop": "npm run database & npm run server & npm run client",
     "client": "webpack-dev-server --inline --hot --port 3000",
     "server": "nodemon ./source/server/entry",
