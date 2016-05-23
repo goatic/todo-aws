@@ -14,7 +14,9 @@
     "server": "nodemon ./source/server/entry",
     "database": "mongod --dbpath database --port 3002",
     "style": "standard --verbose | snazzy",
-    "test": "mocha --compilers js:babel-register --require babel-polyfill --reporter spec --require ./jsdom.config.js --require ignore-styles"
+    "coverage": "istanbul cover _mocha -- --full-trace --compilers js:babel-register --require babel-polyfill --reporter spec --require ./jsdom.config.js --require ignore-styles",
+    "test": "_mocha --compilers js:babel-register --require babel-polyfill --reporter spec --require ./jsdom.config.js --require ignore-styles",
+    "ok": "npm run style & npm run test"
   },
   "repository": {
     "type": "git",
@@ -40,11 +42,14 @@
     "babel-preset-react": "^6.5.0",
     "babel-register": "^6.7.2",
     "chai": "^3.5.0",
+    "coveralls": "^2.11.9",
     "css-loader": "^0.23.1",
     "graphiql": "^0.7.0",
     "ignore-styles": "^1.2.0",
+    "istanbul": "1.0.0-alpha.2",
     "jsdom": "^9.0.0",
     "mocha": "^2.4.5",
+    "mocha-lcov-reporter": "^1.2.0",
     "nodemon": "^1.9.1",
     "react": "^15.0.1",
     "react-addons-test-utils": "^15.0.2",

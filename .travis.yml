@@ -3,11 +3,14 @@ node_js:
   - "5"
 
 install:
+  - npm i -g coveralls
   - npm i
 
 script:
   - npm run style
   - npm run build
   - npm run test
+  - npm run coverage
+  - coveralls < ./coverage/lcov.info
 
 sudo: false

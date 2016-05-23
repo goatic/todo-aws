@@ -6,8 +6,8 @@ async function distribution (context) {
     context.path.startsWith('/distribution/')
     ? context.path
     : context.path === '/api'
-    ? '/distribution/graphiql.html'
-    : '/distribution/client.html'
+      ? '/distribution/graphiql.html'
+      : '/distribution/client.html'
   )
 }
 

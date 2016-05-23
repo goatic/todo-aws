@@ -1,4 +1,12 @@
-import { join } from 'path'
+import {
+  join
+} from 'path'
+
+import {
+  PROTOCOL,
+  HOST,
+  PORT
+} from './environment.config.js'
 
 const babelLoader = {
   test: /.jsx?$/,
@@ -21,15 +29,15 @@ const cssLoader = {
 
 const devServer = {
   progress: true,
-  host: process.env.HOST,
-  port: process.env.PORT,
+  host: HOST,
+  port: PORT,
   contentBase: join(__dirname, '/distribution'),
   publicPath: '/distribution/',
   historyApiFallback: {
     index: 'client.html'
   },
   proxy: {
-    '/api': {target: 'http://localhost:3001'}
+    '/api': {target: `${PROTOCOL}://${HOST}:${PORT + 1}`}
   }
 }
 
