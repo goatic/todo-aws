@@ -1,7 +1,9 @@
 import {
   GraphQLList
 } from 'graphql'
+
 import todo from './types'
+
 import {
   getAll as dbGetAll
 } from '../../repositories/todos'
