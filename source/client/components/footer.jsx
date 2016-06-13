@@ -9,7 +9,7 @@ class Footer extends Component {
     return (
       <footer
       >
-        <p className='Roboto-thin no-select'>© Choc-Devs-9k, 2016</p>
+        <p className='Roboto-thin no-select'>© DnA, 2016</p>
       </footer>
     )
   }
